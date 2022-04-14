@@ -193,6 +193,29 @@ public static class Program
 		} while (Math.Abs(buff - a) >= N);
 		Console.WriteLine($"|{buff} - {a}| < {N}. number of it is {i}");
 	}
+	public static void Array16()
+    {
+		int[] mass;
+		Console.WriteLine("введите размер массива, а затем его элементы поочередно");
+		int size = Convert.ToInt32(Console.ReadLine());
+		mass = new int[size];
+		for(int i = 0; i < size; i++)
+        {
+			Console.Write($"введите {i}й элемент: ");
+			mass[i] = Convert.ToInt32(Console.ReadLine());
+		}
+		Console.Write("ваш массив: ");
+		for (int i = 0; i < size; i++)
+		{
+			Console.Write($"{mass[i]}\t");
+		}
+		Console.WriteLine("\nмассив в указанном порядке: ");
+
+		for(int i = 0; i < size; i++)
+        {
+			Console.Write($"{mass[Math.Abs((size - 1) * (i % 2) - i / 2)]}\t");
+        }
+	}
 	public static void Minmax25()
 	{
 		int N;
@@ -201,13 +224,18 @@ public static class Program
 		int[] mass = new int[N];
 		for(int i = 0; i < N; i++)
         {
-			Console.Write($"enter {i}'th number: ");
+			Console.Write($"введите {i}е число : ");
 			mass[i] = Convert.ToInt32(Console.ReadLine());
 		}
-		for (int a = 0, i = 0; i < N - 1; i++)
+		int min = 0;
+		for (int i = 0; i < N - 1; i++)
 		{
-			if (mass[a] * mass[a + 1] > )
+			if (mass[min] * mass[min + 1] > mass[i] * mass[i + 1])
+            {
+				min = i;
+            }
         }
+		Console.WriteLine($"В вашем ряду числа под номерами {min} и {min + 1} имеют наименьшее произведение");
 	}
 	private static void Main()
 	{
@@ -220,8 +248,8 @@ public static class Program
 				"\n1 - case" +
 				"\n2 - for" +
 				"\n3 - while" +
-				"\n4 - array" +
-				"\n5 - minmax\n");
+				"\n4 - minmax" +
+				"\n5 - array\n");
 
 			int chooseType = Convert.ToInt32(Console.ReadLine());
 			switch (chooseType)
@@ -286,6 +314,25 @@ public static class Program
 				case 4:
 					Console.WriteLine("вы задавали номер 25:");
 					Minmax25();
+					break;
+
+				case 5:
+					Console.WriteLine("теперь выберите номер задания (вы задавали номера 16, 41):");
+					chooseType = Convert.ToInt32(Console.ReadLine());
+					switch (chooseType)
+					{
+						case 16:
+							Array16();
+							break;
+
+						case 41:
+							//Array41();
+							break;
+
+						default:
+							Console.WriteLine("непонял перезапустите");
+							break;
+					}
 					break;
 				default:
 					Console.WriteLine("непонял перезапустите");

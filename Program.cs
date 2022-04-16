@@ -5,7 +5,7 @@
 /// 2. while28 в чем прикол задачи
 /// </summary>
 
-
+using learn;
 public static class Program
 {
 	public static void Case10()
@@ -260,105 +260,107 @@ public static class Program
 	}
 	private static void Main()
 	{
-		while (true)
-		{
-			Console.WriteLine("\n\n\n\n");
-			Console.WriteLine("Леонид Самощенко.\nздрасьте.это моя домашка. весь код зациклен, " +
-				"чтобы вы не перезапускали программу каждый раз." +
-				"\nвыберите тип задания:" +
-				"\n1 - case" +
-				"\n2 - for" +
-				"\n3 - while" +
-				"\n4 - minmax" +
-				"\n5 - array\n");
+		HomeworkManager a = new HomeworkManager();
+		a.Start();
+		//while (true)
+		//{
+		//	Console.WriteLine("\n\n\n\n");
+		//	Console.WriteLine("Леонид Самощенко.\nздрасьте.это моя домашка. весь код зациклен, " +
+		//		"чтобы вы не перезапускали программу каждый раз." +
+		//		"\nвыберите тип задания:" +
+		//		"\n1 - case" +
+		//		"\n2 - for" +
+		//		"\n3 - while" +
+		//		"\n4 - minmax" +
+		//		"\n5 - array\n");
 
-			int chooseType = Convert.ToInt32(Console.ReadLine());
-			switch (chooseType)
-			{
-				case 1:
-					//case
-					Console.WriteLine("теперь выберите номер задания (вы задавали номера 10 и 15):");
-					chooseType = Convert.ToInt32(Console.ReadLine());
-					switch (chooseType)
-					{
-						case 10:
-							Case10();
-							break;
+		//	int chooseType = Convert.ToInt32(Console.ReadLine());
+		//	switch (chooseType)
+		//	{
+		//		case 1:
+		//			//case
+		//			Console.WriteLine("теперь выберите номер задания (вы задавали номера 10 и 15):");
+		//			chooseType = Convert.ToInt32(Console.ReadLine());
+		//			switch (chooseType)
+		//			{
+		//				case 10:
+		//					Case10();
+		//					break;
 
-						case 15:
-							Case15();
-							break;
+		//				case 15:
+		//					Case15();
+		//					break;
 
-						default:
-							Console.WriteLine("непонял перезапустите");
-							break;
-					}
-					break;
+		//				default:
+		//					Console.WriteLine("непонял перезапустите");
+		//					break;
+		//			}
+		//			break;
 
-				case 2:
-					Console.WriteLine("теперь выберите номер задания (вы задавали 17, 38):");
-					chooseType = Convert.ToInt32(Console.ReadLine());
-					switch (chooseType)
-					{
-						case 17:
-							For17();
-							break;
+		//		case 2:
+		//			Console.WriteLine("теперь выберите номер задания (вы задавали 17, 38):");
+		//			chooseType = Convert.ToInt32(Console.ReadLine());
+		//			switch (chooseType)
+		//			{
+		//				case 17:
+		//					For17();
+		//					break;
 
-						case 38:
-							For38();
-							break;
+		//				case 38:
+		//					For38();
+		//					break;
 
-						default:
-							Console.WriteLine("непонял перезапустите");
-							break;
-					}
-					break;
+		//				default:
+		//					Console.WriteLine("непонял перезапустите");
+		//					break;
+		//			}
+		//			break;
 
-				case 3:
-					Console.WriteLine("теперь выберите номер задания (вы задавали номера 26, 28):");
-					chooseType = Convert.ToInt32(Console.ReadLine());
-					switch (chooseType)
-					{
-						case 26:
-							While26();
-							break;
+		//		case 3:
+		//			Console.WriteLine("теперь выберите номер задания (вы задавали номера 26, 28):");
+		//			chooseType = Convert.ToInt32(Console.ReadLine());
+		//			switch (chooseType)
+		//			{
+		//				case 26:
+		//					While26();
+		//					break;
 
-						case 28:
-							While28();
-							break;
+		//				case 28:
+		//					While28();
+		//					break;
 
-						default:
-							Console.WriteLine("непонял перезапустите");
-							break;
-					}
-					break;
-				case 4:
-					Console.WriteLine("вы задавали номер 25:");
-					Minmax25();
-					break;
+		//				default:
+		//					Console.WriteLine("непонял перезапустите");
+		//					break;
+		//			}
+		//			break;
+		//		case 4:
+		//			Console.WriteLine("вы задавали номер 25:");
+		//			Minmax25();
+		//			break;
 
-				case 5:
-					Console.WriteLine("теперь выберите номер задания (вы задавали номера 16, 41):");
-					chooseType = Convert.ToInt32(Console.ReadLine());
-					switch (chooseType)
-					{
-						case 16:
-							Array16();
-							break;
+		//		case 5:
+		//			Console.WriteLine("теперь выберите номер задания (вы задавали номера 16, 41):");
+		//			chooseType = Convert.ToInt32(Console.ReadLine());
+		//			switch (chooseType)
+		//			{
+		//				case 16:
+		//					Array16();
+		//					break;
 
-						case 41:
-							Array41();
-							break;
+		//				case 41:
+		//					Array41();
+		//					break;
 
-						default:
-							Console.WriteLine("непонял перезапустите");
-							break;
-					}
-					break;
-				default:
-					Console.WriteLine("непонял перезапустите");
-					break;
-			}
-		}
+		//				default:
+		//					Console.WriteLine("непонял перезапустите");
+		//					break;
+		//			}
+		//			break;
+		//		default:
+		//			Console.WriteLine("непонял перезапустите");
+		//			break;
+		//	}
+		//}
 	}
 }

@@ -11,16 +11,23 @@
         {
             homework = new Homework();
         }
+        /// <summary>
+        /// сдесь пишутся функции для решения задач
+        /// </summary>
+        /// <returns></returns>
 
-        public bool PochesatPisu()
+        public bool SomeTestHomeworkFunc()
         {
-            Console.WriteLine("vi pochesali pisu");
+            Console.WriteLine("Some staff happens here");
             return true;
         }
 
+        /// <summary>
+        /// сдесь все созданные задачи добавляются в список в классе Homework и программа запускается
+        /// </summary>
         public void Start()
         {
-            homework.addTask("piska", "otobrazite pisku", PochesatPisu);
+            homework.addTask("test task", "kakoe to uslovie dla zadachi", SomeTestHomeworkFunc);
             homework.Start();
         }
     }

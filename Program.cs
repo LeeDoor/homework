@@ -193,6 +193,27 @@ public static class Program
 		} while (Math.Abs(buff - a) >= N);
 		Console.WriteLine($"|{buff} - {a}| < {N}. number of it is {i}");
 	}
+	public static void Minmax25()
+	{
+		int N;
+		Console.WriteLine("введите размер массива");
+		N = Convert.ToInt32(Console.ReadLine());
+		int[] mass = new int[N];
+		for (int i = 0; i < N; i++)
+		{
+			Console.Write($"введите {i}е число : ");
+			mass[i] = Convert.ToInt32(Console.ReadLine());
+		}
+		int min = 0;
+		for (int i = 0; i < N - 1; i++)
+		{
+			if (mass[min] * mass[min + 1] > mass[i] * mass[i + 1])
+			{
+				min = i;
+			}
+		}
+		Console.WriteLine($"В вашем ряду числа под номерами {min} и {min + 1} имеют наименьшее произведение");
+	}
 	public static void Array16()
     {
 		int[] mass;
@@ -216,26 +237,26 @@ public static class Program
 			Console.Write($"{mass[Math.Abs((size - 1) * (i % 2) - i / 2)]}\t");
         }
 	}
-	public static void Minmax25()
-	{
-		int N;
-		Console.WriteLine("введите целое число");
-		N = Convert.ToInt32(Console.ReadLine());
-		int[] mass = new int[N];
-		for(int i = 0; i < N; i++)
-        {
+	public static void Array41()
+    {
+		int size;
+		Console.WriteLine("введите размер массива");
+		size = Convert.ToInt32(Console.ReadLine());
+		int[] mass = new int[size];
+		for (int i = 0; i < size; i++)
+		{
 			Console.Write($"введите {i}е число : ");
 			mass[i] = Convert.ToInt32(Console.ReadLine());
 		}
-		int min = 0;
-		for (int i = 0; i < N - 1; i++)
+		int max = 0;
+		for (int i = 0; i < size - 1; i++)
 		{
-			if (mass[min] * mass[min + 1] > mass[i] * mass[i + 1])
-            {
-				min = i;
-            }
-        }
-		Console.WriteLine($"В вашем ряду числа под номерами {min} и {min + 1} имеют наименьшее произведение");
+			if (mass[max] + mass[max + 1] > mass[i] + mass[i + 1])
+			{
+				max = i;
+			}
+		}
+		Console.WriteLine($"В вашем ряду числа под номерами {max} и {max + 1} имеют наименьшее произведение");
 	}
 	private static void Main()
 	{
@@ -326,7 +347,7 @@ public static class Program
 							break;
 
 						case 41:
-							//Array41();
+							Array41();
 							break;
 
 						default:

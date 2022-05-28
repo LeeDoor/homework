@@ -1,3 +1,32 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@LeeDoor 
+LeeDoor
+/
+homework-STEP
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+homework-STEP/.gitignore
+@LeeDoor
+LeeDoor gitignoreUpdate
+Latest commit feb1957 22 minutes ago
+ History
+ 1 contributor
+249 lines (204 sloc)  3.91 KB
+   
 *.vcxproj.filters
 *.vcxproj.user
 *.opendb
@@ -247,3 +276,15 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

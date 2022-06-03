@@ -4,7 +4,7 @@ namespace learn
 {
     public class Eating : ICalories, ICost
     {
-        public EatingTime eatingTime { get; }
+        public EatingTime eatingTime { get; private set; }
         private List<Dish> dishes;
 
         public Eating() {

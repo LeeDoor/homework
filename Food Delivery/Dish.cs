@@ -25,7 +25,7 @@ namespace learn
 
         public override string ToString()
         {
-            return id.ToString() + '\t' +  name + price.ToString() + '\t' + calories.ToString() + '\t' + isDrink.ToString();
+            return id.ToString() + "\t" + price.ToString() + "\t" + calories.ToString() + '\t' + isDrink.ToString() + '\t' + name;
         }
     }
 }

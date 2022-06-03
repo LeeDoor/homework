@@ -2,6 +2,6 @@
 {
     public interface IOrderBuilder
     {
-        public void BuildEating();
+        public void BuildEating(EatingTime eatingTime);
     }
 }

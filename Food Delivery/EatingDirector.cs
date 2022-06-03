@@ -18,7 +18,7 @@ namespace learn
         public void AddDish()
         {
             if (_builder == null) throw new NullReferenceException();
-            Console.WriteLine("\nwhich dish do you want to add?\nenter the number of your choice:\n");
+            Console.WriteLine("\nwhich dish do you want to add?\n");
             DishDataBase.Show();
 
             string? choice;

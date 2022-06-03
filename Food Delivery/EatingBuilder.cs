@@ -10,15 +10,15 @@ namespace learn
     public class EatingBuilder : IEatingBuilder
     {
         private Eating _eating = new Eating();
-
-        public EatingBuilder()
+        
+        public EatingBuilder(EatingTime eatingTime)
         {
-            Reset();
+            Reset(eatingTime);
         }
 
-        public void Reset()
+        public void Reset(EatingTime eatingTime)
         {
-            _eating = new Eating();
+            _eating = new Eating(eatingTime);
         }
 
         public void AddDish(int id)

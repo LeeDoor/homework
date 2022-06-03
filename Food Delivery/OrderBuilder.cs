@@ -10,7 +10,7 @@ namespace learn
     public class OrderBuilder:IOrderBuilder
     {
         private Order _order = new Order();
-
+        public Order Order { get { return _order; } }
         public OrderBuilder()
         {
             Reset();
@@ -21,10 +21,10 @@ namespace learn
             _order = new Order(); 
         }
 
-        public void BuildEating()
+        public void BuildEating(EatingTime eatingTime)
         {
             EatingDirector director = new EatingDirector();
-            EatingBuilder builder = new EatingBuilder();
+            EatingBuilder builder = new EatingBuilder(eatingTime);
             director.Builder = builder;
             director.AddDish();
             //_order.

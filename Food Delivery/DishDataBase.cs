@@ -17,7 +17,7 @@ namespace learn
 
         public static void Show()
         {
-            Console.WriteLine("id\tname\tcost\tcalories\tis drink");
+            Console.WriteLine("id\tcost\tcals\tdrink\tname");
             foreach(Dish dish in Dishes)
             {
                 Console.WriteLine(dish);

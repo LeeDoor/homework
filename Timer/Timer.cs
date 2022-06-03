@@ -6,11 +6,24 @@ using System.Threading.Tasks;
 
 namespace Timer
 {
+    /// <summary>
+    /// counts down the time from the moment of launch
+    /// </summary>
     public class Timer
     {
+        /// <summary>
+        /// stores the startup time
+        /// </summary>
         private DateTime start;
+
+        /// <summary>
+        /// is timer launched
+        /// </summary>
         private bool isRunning = false;
 
+        /// <summary>
+        /// timer start function
+        /// </summary>
         public void Start()
         {
             bool isWorking = true;
@@ -36,6 +49,9 @@ namespace Timer
             }
         }
 
+        /// <summary>
+        /// starting the timer
+        /// </summary>
         private void Run()
         {
             DateTime current = DateTime.Now;
@@ -47,13 +63,21 @@ namespace Timer
                 current.Minute,
                 current.Second);
             isRunning = true;
+
+            // split into two threads
+            Thread charReading = new Thread(Asking); // additional thread waits for user's type
+            charReading.Start();
+
+            //main thread shows timer info
             show();
         }
 
+
+        /// <summary>
+        /// function draws timer info
+        /// </summary>
         public void show()
         {
-            Thread charReading = new Thread(Asking);
-            charReading.Start();
 
             while (isRunning)
             {
@@ -61,7 +85,9 @@ namespace Timer
                 if (timerBuff.Milliseconds == 0)
                 {
                     Console.Clear();
-                    Console.WriteLine(timerBuff.Hours + "h : " + timerBuff.Minutes + "m : " + timerBuff.Seconds + "s\n" +
+                    Console.Write(timerBuff.Hours + "h : " + 
+                        timerBuff.Minutes + "m : " + 
+                        timerBuff.Seconds + "s" +
                         "1 - stop");
                 }
             }
@@ -69,6 +95,9 @@ namespace Timer
             Console.WriteLine(DateTime.Now.Subtract(start));
         }
 
+        /// <summary>
+        /// function waiting for user's choice
+        /// </summary>
         private void Asking()
         {
             while (isRunning)

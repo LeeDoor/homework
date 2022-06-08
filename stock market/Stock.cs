@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace stock_market
 {
+    /// <summary>
+    /// the class responsible for the stock on the exchange
+    /// </summary>
 	public class Stock
     {
+        /// <summary>
+        /// id of stock
+        /// </summary>
         public int Id { get; private set; }
 
         /// <summary>

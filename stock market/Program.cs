@@ -11,7 +11,7 @@ public static class Program {
         Broker broker1 = new Broker("MasterBroker", market);
         Broker broker2 = new Broker("MegaBroker", market);
 
-        market.AddStock(0, "Doolar", 70);
+        market.AddStock(0, "Dollar", 70);
         market.AddStock(1, "Euro", 100);
         market.AddStock(2, "Vk", 15);
         market.AddStock(3, "MTS", 150);

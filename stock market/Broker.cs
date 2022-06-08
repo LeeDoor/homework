@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace stock_market
 {
+    /// <summary>
+    /// a class describing the broker. the broker's task is to buy assets at a favorable price.
+    /// </summary>
     public class Broker : Communicator
     {
         public Broker(string name) : base(name)

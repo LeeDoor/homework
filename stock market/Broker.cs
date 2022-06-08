@@ -22,11 +22,11 @@ namespace stock_market
         {
             if (ValidatePrice(stockName, newPrice))
             {
-                Console.WriteLine($"communicator decided to buy {stockName}");
+                Console.WriteLine($"{Name} decided to buy {stockName}");
             }
             else
             {
-                Console.WriteLine($"communicator decided to not buy {stockName}");
+                Console.WriteLine($"{Name} decided to not buy {stockName}");
             }
         }
 

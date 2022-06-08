@@ -18,22 +18,11 @@ namespace learn
         public void AddDish()
         {
             if (_builder == null) throw new NullReferenceException();
-            Console.WriteLine("\nwhich dish do you want to add?\n");
+            Console.WriteLine("\nwhich dish do you want to add?\nenter id");
             DishDataBase.Show();
-
-            string? choice;
-            int intChoice;
-            choice = Console.ReadLine();
-            if (choice == null) throw new NullReferenceException();
-            if(int.TryParse(choice, out intChoice))
-            {
-                _builder.AddDish(intChoice);
-            }
-            else
-            {
-                _builder.AddDish(choice);
-            }
-            
+            string? choice = Console.ReadLine();
+            if(Int32.TryParse(choice, out int res))
+                _builder.AddDish(res);
         }
     }
 }

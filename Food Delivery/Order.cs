@@ -4,7 +4,7 @@ namespace learn
 {
     public class Order : ICalories, ICost
     {
-        public List<Eating> Eatings { get; }
+        public List<Eating> Eatings { get; set; }
         private int duration;
 
         public Order()
@@ -48,6 +48,16 @@ namespace learn
                 return "Perfect";
             }
             return "too much";
+        }
+
+        public override string ToString()
+        {
+            string buff = "";
+            foreach(var eating in Eatings)
+            {
+                buff += eating.ToString() + "\t";
+            }
+            return buff;
         }
     }
 }

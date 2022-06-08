@@ -26,8 +26,28 @@ namespace learn
             EatingDirector director = new EatingDirector();
             EatingBuilder builder = new EatingBuilder(eatingTime);
             director.Builder = builder;
-            director.AddDish();
-            //_order.
+            bool flag = true;
+            while (flag)
+            {
+                Console.WriteLine(_order.ToString());
+                Console.WriteLine("do you want to add another dish? (y/n)");;
+                string? choice = Console.ReadLine();
+                if (choice == null || choice == "") throw new NullReferenceException();
+                switch (choice[0])
+                {
+                    case 'y':
+                    case 'Y':
+                        director.AddDish();
+                        break;
+
+                    case 'n':
+                    case 'N':
+                        flag = false;
+                        break;
+                }
+                _order.Eatings.Add(builder.Eating);
+            }
+
         }
 
     }

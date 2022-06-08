@@ -24,8 +24,9 @@ namespace learn
                 "3 - Lunch\n" +
                 "4 - Supper\n" +
                 "5 - Dinner\n");
-            char choice = (char)Console.Read();
-            switch (choice)
+            string? choice = Console.ReadLine();
+            if (String.IsNullOrEmpty(choice)) throw new NullReferenceException();
+            switch (choice[0])
             {
                 case '1':
                     AddEating(EatingTime.Breakfast);

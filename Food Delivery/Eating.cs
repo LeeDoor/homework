@@ -39,5 +39,10 @@ namespace learn
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            return dishes.Count.ToString();
+        }
     }
 }

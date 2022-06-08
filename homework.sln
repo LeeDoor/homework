@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Food Delivery", "Food Deliv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Students", "Students\Students.csproj", "{38A1F96B-7283-4A97-A382-879FCE3E29F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timer", "Timer\Timer.csproj", "{2704F87E-964F-4DCC-A129-2E5FA2B08F48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timer", "Timer\Timer.csproj", "{2704F87E-964F-4DCC-A129-2E5FA2B08F48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stock market", "stock market\stock market.csproj", "{B9AF1C4F-96A9-499F-B762-AEE2DCC90D38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{2704F87E-964F-4DCC-A129-2E5FA2B08F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2704F87E-964F-4DCC-A129-2E5FA2B08F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2704F87E-964F-4DCC-A129-2E5FA2B08F48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9AF1C4F-96A9-499F-B762-AEE2DCC90D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9AF1C4F-96A9-499F-B762-AEE2DCC90D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9AF1C4F-96A9-499F-B762-AEE2DCC90D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9AF1C4F-96A9-499F-B762-AEE2DCC90D38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,6 +10,7 @@ namespace learn
     public class EatingBuilder : IEatingBuilder
     {
         private Eating _eating = new Eating();
+        public Eating Eating { get { return _eating; } }
         
         public EatingBuilder(EatingTime eatingTime)
         {
@@ -20,6 +21,8 @@ namespace learn
         {
             _eating = new Eating(eatingTime);
         }
+
+        
 
         public void AddDish(int id)
         {

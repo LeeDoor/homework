@@ -39,6 +39,9 @@ namespace stock_market
         public void AddStock(int id, string name, decimal startPrice)
         {
             stocks.Add(new Stock(id, name, startPrice));
+
+            Console.WriteLine($"added new stock {name}. start price is {startPrice}\n");
+
             StockAdded?.Invoke(name, startPrice);
         }
 
@@ -50,6 +53,9 @@ namespace stock_market
         public void ChangeStockPrice(Stock stock, decimal priceDifference)
         {
             stock.ChangePrice(priceDifference);
+
+            Console.WriteLine($"{stock.Name} price changed. current price is {stock.Price}\n");
+
             PriceChanged?.Invoke(stock.Name, stock.Price);
         }
 
@@ -58,7 +64,7 @@ namespace stock_market
         /// </summary>
         /// <param name="id">id of stock</param>
         /// <returns>link on needed stock</returns>
-        public Stock getStockById(int id)
+        public Stock GetStockById(int id)
         {
             return stocks.Where<Stock>(n => n.Id == id).First();
         }
@@ -68,7 +74,7 @@ namespace stock_market
         /// </summary>
         /// <param name="name">name of stock</param>
         /// <returns>link on needed stock</returns>
-        public Stock getStockByName(string name)
+        public Stock GetStockByName(string name)
         {
             // что будет сдесь лучше?
 
@@ -79,6 +85,32 @@ namespace stock_market
             //    if (stock.Name == name) return stock;
             //}
             //throw new Exeption();
+        }
+
+        public Stock GetStockRandom()
+        {
+            return stocks[new Random().Next(0, stocks.Count)];
+        }
+
+        public void showPrices()
+        {
+            Console.WriteLine("costs:\n");
+            foreach (var stock in stocks)
+            {
+                Console.WriteLine(stock.ToString());
+            }
+            Console.WriteLine();
+        }
+
+        public void StartOnlineChanges()
+        {
+            while (true)
+            {
+                showPrices();
+                ChangeStockPrice(GetStockRandom(), new Random().Next(-10,10));
+                Console.Read();
+                Console.Clear();
+            }
         }
     }
 }

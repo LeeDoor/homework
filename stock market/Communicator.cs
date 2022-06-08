@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace stock_market
 {
+
     /// <summary>
     /// base class for banks and brokers interacting with the exchange
     /// </summary>
@@ -78,7 +79,14 @@ namespace stock_market
         /// <param name="newPrice">its start price</param>
         public virtual void PriceChangeReact(string stockName, decimal newPrice)
         {
-            Console.WriteLine($"{Name} notified about price changes. stock {stockName} => {newPrice}");
+            if (ValidatePrice(stockName, newPrice))
+            {
+                Console.WriteLine($"communicator decided to @@@ {stockName}");
+            }
+            else
+            {
+                Console.WriteLine($"communicator decided to not @@@ {stockName}");
+            }
         }
 
         /// <summary>
@@ -92,6 +100,15 @@ namespace stock_market
                 Console.WriteLine($"{pair.Key} => {pair.Value}");
             }
             Console.WriteLine();
+        }
+
+        protected virtual bool ValidatePrice(string name, decimal price)
+        {
+            if (optimalPrice[name] == price)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

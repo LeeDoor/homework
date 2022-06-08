@@ -18,10 +18,25 @@ namespace stock_market
         public Broker(string name, StockMarket market) : base(name, market)
         {
         }
-
         public override void PriceChangeReact(string stockName, decimal newPrice)
         {
-            Console.WriteLine($"{Name} broker notified about price changes. stock {stockName} => {newPrice}");
+            if (ValidatePrice(stockName, newPrice))
+            {
+                Console.WriteLine($"communicator decided to buy {stockName}");
+            }
+            else
+            {
+                Console.WriteLine($"communicator decided to not buy {stockName}");
+            }
+        }
+
+        protected override bool ValidatePrice(string name, decimal price)
+        {
+            if (optimalPrice[name] >= price)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -87,11 +87,18 @@ namespace stock_market
             //throw new Exeption();
         }
 
+        /// <summary>
+        /// randomly get stock
+        /// </summary>
+        /// <returns>returns link on random stock</returns>
         public Stock GetStockRandom()
         {
             return stocks[new Random().Next(0, stocks.Count)];
         }
 
+        /// <summary>
+        /// print prices if stocks
+        /// </summary>
         public void showPrices()
         {
             Console.WriteLine("costs:\n");
@@ -102,12 +109,16 @@ namespace stock_market
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// console writing
+        /// </summary>
         public void StartOnlineChanges()
         {
             while (true)
             {
                 showPrices();
                 ChangeStockPrice(GetStockRandom(), new Random().Next(-10,10));
+                Console.WriteLine("\npress enter ..");
                 Console.Read();
                 Console.Clear();
             }

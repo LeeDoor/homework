@@ -102,6 +102,12 @@ namespace stock_market
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// checks if price is good for this communicator
+        /// </summary>
+        /// <param name="name">name of stock</param>
+        /// <param name="price">new price of stock</param>
+        /// <returns>is price normal</returns>
         protected virtual bool ValidatePrice(string name, decimal price)
         {
             if (optimalPrice[name] == price)

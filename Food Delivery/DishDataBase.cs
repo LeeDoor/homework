@@ -1,45 +1,37 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace learn
+namespace Delivery
 {
-    public static class DishDataBase
+    public static class DishDatabase
     {
-        static List<Dish> Dishes { get; }
-
-        static DishDataBase()
+        public static List<Dish> Dishes { get; private set; } = new()
         {
-            Dishes = new List<Dish>();
+            new Dish(0, "Банан", 15, 25, false),
+            new Dish(1, "Огурец", 12, 31,  false),
+            new Dish(2, "Апельсиновый сок 0,5л", 70, 200, true)
+        };
 
-            Dishes.Add(new Dish(0, "chicken leg", 215, 70, false));
-            Dishes.Add(new Dish(1, "vegetable salad", 35, 50, false));
-            Dishes.Add(new Dish(2, "orange juice", 45, 60, true));
+        public static Dish GetDish(string name) 
+        {
+            return Dishes.Where<Dish>(n => n.Name == name).First();
+        }
+
+        public static Dish GetDish(int id)
+        {
+            return Dishes.Where<Dish>(n => n.Id == id).First();
         }
 
         public static void Show()
         {
-            Console.WriteLine("id\tcost\tcals\tdrink\tname");
-            foreach(Dish dish in Dishes)
-            {
-                Console.WriteLine(dish);
-            }
-            Console.WriteLine('\n');
-        }
-
-        public static Dish getDish(int id)
-        {
             foreach(var dish in Dishes)
             {
-                if (dish.id == id) return dish;
+                dish.Show();
+                Console.WriteLine();
             }
-            return Dishes[0];
-        }
-        public static Dish getDish(string name)
-        {
-            foreach (var dish in Dishes)
-            {
-                if (dish.name == name) return dish;
-            }
-            return Dishes[0];
         }
     }
 }

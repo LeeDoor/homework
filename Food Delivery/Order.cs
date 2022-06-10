@@ -1,63 +1,51 @@
-﻿using learn.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace learn
+namespace Delivery
 {
-    public class Order : ICalories, ICost
+    public class Order
     {
-        public List<Eating> Eatings { get; set; }
-        private int duration;
+        public int Duration { get; set; }
+        public Dictionary<EatingTime, Eating> Eatings { get; private set; }
 
         public Order()
         {
-            Eatings = new List<Eating>();
+            Eatings = new();
         }
 
-
-        public int countCalories()
+        public void AddEating(EatingTime eatingTime, Eating eating)
         {
-            int calories = 0;
-            foreach(var eating in Eatings)
-            {
-                calories += eating.countCalories();
-            }
-            return calories;
+            Eatings.Add(eatingTime, eating);
         }
 
-        public float countCost()
+        public void Show()
         {
-            float sum = 0f;
-            foreach (var eating in Eatings)
+            foreach(var pair in Eatings)
             {
-                sum += eating.countCost();
-            }
-            return sum;
-        }
+                switch (pair.Key)
+                {
+                    case EatingTime.Breakfast:
+                        Console.WriteLine("breakfast:");
+                        break;
+                    case EatingTime.MorSnack:
+                        Console.WriteLine("morning snack:");
+                        break;
+                    case EatingTime.Lunch:
+                        Console.WriteLine("lunch:");
+                        break;
+                    case EatingTime.EveSnack:
+                        Console.WriteLine("evening snack:");
+                        break;
+                    case EatingTime.Dinner:
+                        Console.WriteLine("dinner:");
+                        break;
+                }
 
-        public string getDangerLevelCalories()
-        {
-            int calories = countCalories();
-            int normalMin = 2600 / 7 * Eatings.Count;
-            int normalMax = 3200 / 7 * Eatings.Count;
-
-            if(calories < normalMin)
-            {
-                return "Not enough";
+                pair.Value.Show();
             }
-            else if(normalMin <= calories && calories <= normalMax)
-            {
-                return "Perfect";
-            }
-            return "too much";
-        }
-
-        public override string ToString()
-        {
-            string buff = "";
-            foreach(var eating in Eatings)
-            {
-                buff += eating.ToString() + "\t";
-            }
-            return buff;
         }
     }
 }

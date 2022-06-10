@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace learn
+namespace Delivery
 {
     public enum EatingTime
     {
+        Null = -1,
         Breakfast,
-        Elevenses,
+        MorSnack,
         Lunch,
-        Supper,
+        EveSnack,
         Dinner
     }
 }

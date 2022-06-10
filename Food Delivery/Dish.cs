@@ -4,28 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace learn
+namespace Delivery
 {
     public class Dish
     {
-        public int id;
-        public string name;
-        public int calories;
-        public decimal price;
-        public bool isDrink;
+        public int Id { get; }
+        public string Name { get; }
+        public decimal Price { get; }
+        public int Calories { get; }
+        public bool IsDrink { get; }
 
-        public Dish(int id, string name, int calories, decimal price, bool isDrink)
+        public Dish(int id, string name, decimal price, int calories, bool isDrink)
         {
-            this.id = id;
-            this.name = name;
-            this.calories = calories;
-            this.price = price;
-            this.isDrink = isDrink;
+            Name = name;
+            Price = price;
+            IsDrink = isDrink;
+            Id = id;
+            Calories = calories;
         }
 
         public override string ToString()
         {
-            return id.ToString() + "\t" + price.ToString() + "\t" + calories.ToString() + '\t' + isDrink.ToString() + '\t' + name;
+            return $"{Id} \t {Name} \t {Price}rub \t {Calories}cal \t {IsDrink} drink";
+        }
+
+        public void Show()
+        {
+            (int left, int top) = Console.GetCursorPosition();
+
+            Console.SetCursorPosition(0, top);
+            Console.Write(Id+"\t");
+
+            int drink_name_max_length = 20;
+            if(Name.Length > 10)
+            {
+                for(int i = 0; i < drink_name_max_length; i++)
+                {
+                    Console.Write(Name[i]);
+                }
+                Console.Write("...   ");
+            }
+            else
+            {
+                Console.Write(Name);
+                for(int i = 0; i < drink_name_max_length +6 - Name.Length; i++)
+                {
+                    Console.Write(" ");
+                }
+            }
+            Console.Write($"{Price}rub\t{Calories}cal\t{IsDrink} drink\n");
         }
     }
 }

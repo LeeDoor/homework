@@ -1,48 +1,62 @@
-﻿using learn.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace learn
+namespace Delivery
 {
-    public class Eating : ICalories, ICost
+    public class Eating
     {
-        public EatingTime eatingTime { get; private set; }
-        private List<Dish> dishes;
+        public List<Dish> Dishes { get; set; }
+        private static readonly int MAX_DISHES = 5;
 
-        public Eating() {
-            eatingTime = EatingTime.Breakfast;
-            dishes = new List<Dish>();
-        }
-        public Eating(EatingTime eatingTime) : this()
+        public Eating()
         {
-            this.eatingTime = eatingTime;
+            Dishes = new List<Dish>();
         }
 
-        public void addDish(int id)
+        public void AddDish(Dish dish)
         {
-            dishes.Add(DishDataBase.getDish(id));
-        }
-        public void addDish(string name)
-        {
-            dishes.Add(DishDataBase.getDish(name));
+            if (Dishes.Count < MAX_DISHES)
+            {  // если блюд меньше максимального
+                if (Dishes.Where<Dish>(n => n.IsDrink == true).Count() + (dish.IsDrink ? 1 : 0) <= 1)
+                { // проверка на допустимое количество напитков
+                    Dishes.Add(dish);
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("there is 1 drink max");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("too much dishes for one eating. max is 4 dishes and 1 drink or 5 dishes");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
         }
 
-        public int countCalories()
+        public void RemoveDish(string name)
         {
-            throw new NotImplementedException();
+            Dishes.Remove(Dishes.Where<Dish>(n=>n.Name == name).First());
         }
 
-        public float countCost()
+        public void Show()
         {
-            throw new NotImplementedException();
+            Console.WriteLine();
+            foreach (var dish in Dishes)
+            {
+                dish.Show();
+            }
+            Console.WriteLine();
         }
 
-        public string getDangerLevelCalories()
+        public void Sort()
         {
-            throw new NotImplementedException();
-        }
-
-        public override string ToString()
-        {
-            return dishes.Count.ToString();
+            Dishes.OrderByDescending(n => n.Id);
         }
     }
 }

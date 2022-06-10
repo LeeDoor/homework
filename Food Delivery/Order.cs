@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Delivery.Interfaces;
 
 namespace Delivery
 {
-    public class Order
+    public class Order : ICountCalories, ICountPrice
     {
-        public int Duration { get; set; }
+        public int Duration { get; set; } = 1;
         public Dictionary<EatingTime, Eating> Eatings { get; private set; }
 
         public Order()
@@ -47,5 +48,33 @@ namespace Delivery
                 pair.Value.Show();
             }
         }
+
+
+        public decimal CountPrice()
+        {
+            decimal buff = 0;
+            foreach (var pair in Eatings)
+            {
+                buff += pair.Value.CountPrice();
+            }
+            return buff * Duration;
+        }
+        public int CountCalories()
+        {
+            int buff = 0;
+            foreach (var pair in Eatings)
+            {
+                buff += pair.Value.CountCalories();
+            }
+            return buff * Duration;
+        }
+
+        public DangerLevel IsAmountNormal(int calories)
+        {
+            if (2500 <= calories && calories <= 2800) return DangerLevel.Safe;
+            else if (calories < 2500) return DangerLevel.Little;
+            else  return DangerLevel.Alot;
+        }
+        
     }
 }

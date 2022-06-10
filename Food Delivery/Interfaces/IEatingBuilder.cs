@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public interface IEatingBuilder
+namespace Food_Delivery.Interfaces
 {
-    public void BuildDishes();
+    public interface IEatingBuilder
+    {
+        public void BuildDishes();
+    }
 }

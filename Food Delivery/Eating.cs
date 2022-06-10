@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Delivery.Interfaces;
 
 namespace Delivery
 {
-    public class Eating
+    public class Eating : ICountCalories, ICountPrice
     {
         public List<Dish> Dishes { get; set; }
         private static readonly int MAX_DISHES = 5;
@@ -57,6 +58,33 @@ namespace Delivery
         public void Sort()
         {
             Dishes = Dishes.OrderBy(n => n.Id).ToList();
+        }
+
+        public int CountCalories()
+        {
+            int buff = 0;
+            foreach(var dish in Dishes)
+            {
+                buff += dish.Calories;
+            }
+            return buff;
+        }
+
+        public decimal CountPrice()
+        {
+            decimal buff = 0;
+            foreach (var dish in Dishes)
+            {
+                buff += dish.Price;
+            }
+            return buff;
+        }
+
+        public DangerLevel IsAmountNormal(int calories)
+        {
+            if (400 <= calories && calories <= 600) return DangerLevel.Safe;
+            else if (calories < 400) return DangerLevel.Little;
+            else return DangerLevel.Alot;
         }
     }
 }

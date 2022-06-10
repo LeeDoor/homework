@@ -23,11 +23,6 @@ namespace Delivery
             Calories = calories;
         }
 
-        public override string ToString()
-        {
-            return $"{Id} \t {Name} \t {Price}rub \t {Calories}cal \t {IsDrink} drink";
-        }
-
         public void Show()
         {
             (int left, int top) = Console.GetCursorPosition();
@@ -52,7 +47,7 @@ namespace Delivery
                     Console.Write(" ");
                 }
             }
-            Console.Write($"{Price}rub\t{Calories}cal\t{IsDrink} drink\n");
+            Console.Write($"{Price}rub\t{Calories}cal\t{(IsDrink?"is a":"not a")} drink\n");
         }
     }
 }

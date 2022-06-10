@@ -4,7 +4,8 @@
     {
         private static void Main()
         {
-            Order order = DeliveryApp.CreateOrder();
+            OrderBuilder builder = new();
+            Order order = builder.BuildOrder();
             order.Show();
         }
     }

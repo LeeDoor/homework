@@ -56,7 +56,7 @@ namespace Delivery
 
         public void Sort()
         {
-            Dishes.OrderByDescending(n => n.Id);
+            Dishes = Dishes.OrderBy(n => n.Id).ToList();
         }
     }
 }

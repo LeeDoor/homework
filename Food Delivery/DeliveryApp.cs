@@ -21,8 +21,11 @@ namespace Delivery
                 string? choiceS;
                 char choiceC;
 
-                Console.WriteLine($"\norder creating menu" +
-                    $"\nDuration => {order.Duration}" +
+                Console.WriteLine($"\norder creating menu"); 
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\nDuration => {order.Duration}");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(
                     $"\n1 - set duration (days)" +
                     $"\n2 - add eating (прием пищи)" +
                     $"\n3 - show current order");

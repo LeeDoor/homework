@@ -24,7 +24,7 @@ namespace Delivery
                 Console.WriteLine("do you want to add another dish here? y/n");
 
                 choiceS = Console.ReadLine();
-                if (string.IsNullOrEmpty(choiceS)) throw new Exception();
+                if (string.IsNullOrEmpty(choiceS)) continue;
                 choiceC = choiceS[0];
 
 

@@ -22,9 +22,11 @@ namespace Delivery
                 char choiceC;
 
                 Console.WriteLine($"\norder creating menu"); 
+
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"\nDuration => {order.Duration}");
                 Console.ForegroundColor = ConsoleColor.White;
+
                 Console.WriteLine(
                     $"\n1 - set duration (days)" +
                     $"\n2 - add eating (прием пищи)" +
@@ -40,7 +42,7 @@ namespace Delivery
                         Console.WriteLine("enter duration (in days):");
 
                         choiceS = Console.ReadLine();
-                        if (string.IsNullOrEmpty(choiceS)) throw new Exception();
+                        if (string.IsNullOrEmpty(choiceS)) continue;
                         choiceS = choiceS[0].ToString();
 
                         if (Int32.TryParse(choiceS, out int duration))
@@ -64,7 +66,7 @@ namespace Delivery
                                 "\n5 - dinner");
 
                             choiceS = Console.ReadLine();
-                            if (string.IsNullOrEmpty(choiceS)) throw new Exception();
+                            if (string.IsNullOrEmpty(choiceS)) continue;
                             choiceC = choiceS[0];
 
                             switch (choiceC)

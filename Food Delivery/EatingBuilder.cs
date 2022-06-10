@@ -36,16 +36,29 @@ namespace Delivery
                         Console.WriteLine("what do you want to add?\nenter Id:");
 
                         choiceS = Console.ReadLine();
-                        if (string.IsNullOrEmpty(choiceS)) throw new Exception();
+                        if (string.IsNullOrEmpty(choiceS)) continue;
+
                         choiceC = choiceS[0];
 
                         if (Int32.TryParse(choiceC.ToString(), out int c))
                         {
-                            _product.AddDish(DishDatabase.GetDish(c));
+                            Dish? buff = DishDatabase.GetDish(c);
+                            if (buff != null) 
+                            {
+                                _product.AddDish(buff);
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("wrong data");
+                                Console.ForegroundColor = ConsoleColor.White;
+                            }
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("wrong data");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
                         break;
 
@@ -55,10 +68,13 @@ namespace Delivery
                         break;
 
                     default:
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("wrong data");
+                        Console.ForegroundColor = ConsoleColor.White;
                         break;
                 }
             }
+            
             _product.Sort();
         }
     }

@@ -15,14 +15,14 @@ namespace Delivery
             new Dish(2, "Апельсиновый сок 0,5л", 70, 200, true)
         };
 
-        public static Dish GetDish(string name) 
+        public static Dish? GetDish(string name) 
         {
-            return Dishes.Where<Dish>(n => n.Name == name).First();
+            return Dishes.Where<Dish>(n => n.Name == name).FirstOrDefault();
         }
 
-        public static Dish GetDish(int id)
+        public static Dish? GetDish(int id)
         {
-            return Dishes.Where<Dish>(n => n.Id == id).First();
+            return Dishes.Where<Dish>(n => n.Id == id).FirstOrDefault();
         }
 
         public static void Show()

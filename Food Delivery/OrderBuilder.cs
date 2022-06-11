@@ -42,7 +42,7 @@ namespace Delivery
 
                     case DangerLevel.Alot:
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"{_product.CountCalories()} cal\nwarning: too much calories, my fatty boy!");
+                        Console.WriteLine($"{_product.CountCalories()} cal\nwarning: too much calories!");
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
                 }

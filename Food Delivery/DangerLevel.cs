@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Delivery
 {
+    /// <summary>
+    /// calorie hazard level
+    /// </summary>
     public enum DangerLevel
     {
         Little,

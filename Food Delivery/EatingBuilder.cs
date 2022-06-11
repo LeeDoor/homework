@@ -7,12 +7,19 @@ using Food_Delivery.Interfaces;
 
 namespace Delivery
 {
+    /// <summary>
+    /// class builds eating
+    /// </summary>
     public class EatingBuilder : IEatingBuilder
     {
+        /// <summary>
+        /// total eating we are creating
+        /// </summary>
         public Eating _product = new Eating();
 
-
-
+        /// <summary>
+        /// function adds dishes in list
+        /// </summary>
         public void BuildDishes()
         {
             bool flag = true;

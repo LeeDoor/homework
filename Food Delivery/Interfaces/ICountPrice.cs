@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace Delivery.Interfaces
 {
+    /// <summary>
+    /// interface describing classes in which the final cost can be calculated
+    /// </summary>
     public interface ICountPrice
     {
+        /// <summary>
+        /// counts total price
+        /// </summary>
+        /// <returns>returns price</returns>
         public decimal CountPrice();
     }
 }

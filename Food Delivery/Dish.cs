@@ -6,14 +6,35 @@ using System.Threading.Tasks;
 
 namespace Delivery
 {
+    /// <summary>
+    /// a class describing a specific dish 
+    /// </summary>
     public class Dish
     {
+        /// <summary>
+        /// id of dish
+        /// </summary>
         public int Id { get; }
+        /// <summary>
+        /// name of dish
+        /// </summary>
         public string Name { get; }
+        /// <summary>
+        /// price of dish
+        /// </summary>
         public decimal Price { get; }
+        /// <summary>
+        /// amount of calories of dish
+        /// </summary>
         public int Calories { get; }
+        /// <summary>
+        /// is this dish a drink
+        /// </summary>
         public bool IsDrink { get; }
 
+        /// <summary>
+        /// parametric constructor
+        /// </summary>
         public Dish(int id, string name, decimal price, int calories, bool isDrink)
         {
             Name = name;
@@ -23,6 +44,9 @@ namespace Delivery
             Calories = calories;
         }
 
+        /// <summary>
+        /// function prints info about dish in console
+        /// </summary>
         public void Show()
         {
             (int left, int top) = Console.GetCursorPosition();

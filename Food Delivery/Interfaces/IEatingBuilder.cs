@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Food_Delivery.Interfaces
 {
+    /// <summary>
+    /// interface of eating builder
+    /// </summary>
     public interface IEatingBuilder
     {
         public void BuildDishes();

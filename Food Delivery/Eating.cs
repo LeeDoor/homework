@@ -7,16 +7,33 @@ using Delivery.Interfaces;
 
 namespace Delivery
 {
+    /// <summary>
+    /// a class describing a single meal, such as breakfast, lunch, dinner
+    /// </summary>
     public class Eating : ICountCalories, ICountPrice
     {
+        /// <summary>
+        /// list of dishes in this single meal
+        /// </summary>
         public List<Dish> Dishes { get; set; }
+
+        /// <summary>
+        /// max accessable dishes in one single meal
+        /// </summary>
         private static readonly int MAX_DISHES = 5;
 
+        /// <summary>
+        /// standart constructor
+        /// </summary>
         public Eating()
         {
             Dishes = new List<Dish>();
         }
 
+        /// <summary>
+        /// adds dish in list with its link
+        /// </summary>
+        /// <param name="dish">link on your dish</param>
         public void AddDish(Dish dish)
         {
             if (Dishes.Count < MAX_DISHES)
@@ -40,11 +57,18 @@ namespace Delivery
             }
         }
 
+        /// <summary>
+        /// removes dish from list with its name
+        /// </summary>
+        /// <param name="name">name of the dish you want to remove</param>
         public void RemoveDish(string name)
         {
             Dishes.Remove(Dishes.Where<Dish>(n=>n.Name == name).First());
         }
 
+        /// <summary>
+        /// prints info about dishes in your single meal
+        /// </summary>
         public void Show()
         {
             Console.WriteLine();
@@ -55,6 +79,9 @@ namespace Delivery
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// sorts list of dishes
+        /// </summary>
         public void Sort()
         {
             Dishes = Dishes.OrderBy(n => n.Id).ToList();

@@ -7,21 +7,43 @@ using Delivery.Interfaces;
 
 namespace Delivery
 {
+    /// <summary>
+    /// complete order with a list of meals
+    /// </summary>
     public class Order : ICountCalories, ICountPrice
     {
+        /// <summary>
+        /// order duration in days
+        /// </summary>
         public int Duration { get; set; } = 1;
+
+        /// <summary>
+        /// KEY - name of meal
+        /// VALUE - eating
+        /// </summary>
         public Dictionary<EatingTime, Eating> Eatings { get; private set; }
 
+        /// <summary>
+        /// standart constructor
+        /// </summary>
         public Order()
         {
             Eatings = new();
         }
 
+        /// <summary>
+        /// adds eating to dictionary
+        /// </summary>
+        /// <param name="eatingTime">name of eating time</param>
+        /// <param name="eating">link on eating</param>
         public void AddEating(EatingTime eatingTime, Eating eating)
         {
             Eatings.Add(eatingTime, eating);
         }
 
+        /// <summary>
+        /// prints info about eatings
+        /// </summary>
         public void Show()
         {
             foreach(var pair in Eatings)
@@ -48,7 +70,6 @@ namespace Delivery
                 pair.Value.Show();
             }
         }
-
 
         public decimal CountPrice()
         {

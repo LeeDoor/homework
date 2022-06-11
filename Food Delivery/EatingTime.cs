@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace Delivery
 {
+    /// <summary>
+    /// list of meals
+    /// </summary>
     public enum EatingTime
     {
         Null = -1,
-        Breakfast,
-        MorSnack,
-        Lunch,
-        EveSnack,
-        Dinner
+        Breakfast, // завтрак
+        MorSnack, //утренний перекус
+        Lunch, //обед
+        EveSnack, //вечерний перекус
+        Dinner //ужин
     }
 }

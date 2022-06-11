@@ -6,10 +6,20 @@ using System.Threading.Tasks;
 
 namespace Delivery
 {
+    /// <summary>
+    /// a class designed to build an order 
+    /// </summary>
     public class OrderBuilder
     {
+        /// <summary>
+        /// main order
+        /// </summary>
         public Order _product = new();
 
+        /// <summary>
+        /// dialog menu to create an order
+        /// </summary>
+        /// <returns>returns created order</returns>
         public Order BuildOrder()
         {
             _product = new Order();
@@ -83,6 +93,9 @@ namespace Delivery
             return _product;
         }
 
+        /// <summary>
+        /// clsas designed to set duration of an order
+        /// </summary>
         private void BuildDuration()
         {
             string? choiceS;
@@ -101,6 +114,10 @@ namespace Delivery
                 Console.WriteLine("wrong data");
             }
         }
+
+        /// <summary>
+        /// class designed to add eatings to an order
+        /// </summary>
         private void BuildEating()
         {
             string? choiceS;

@@ -29,7 +29,11 @@ namespace Food_Delivery
 
             while (flag)
             {
-                Console.WriteLine("do you want to add another dish here? y/n");
+                Console.WriteLine("do you want to do?\n" +
+                    "1 - add any dish\n" +
+                    "2 - set any preset\n" +
+                    "3 - remove dish\n" +
+                    "4 - quit");
 
                 choiceS = Console.ReadLine();
                 if (string.IsNullOrEmpty(choiceS)) continue;
@@ -38,17 +42,14 @@ namespace Food_Delivery
 
                 switch (choiceC)
                 {
-                    case 'y':
-                    case 'Y':
+                    case '1':
                         DishDatabase.Show();
                         Console.WriteLine("what do you want to add?\nenter Id:");
 
                         choiceS = Console.ReadLine();
                         if (string.IsNullOrEmpty(choiceS)) continue;
 
-                        choiceC = choiceS[0];
-
-                        if (Int32.TryParse(choiceC.ToString(), out int c))
+                        if (Int32.TryParse(choiceS.ToString(), out int c))
                         {
                             Dish? buff = DishDatabase.GetDish(c);
                             if (buff != null) 
@@ -70,8 +71,38 @@ namespace Food_Delivery
                         }
                         break;
 
-                    case 'n':
-                    case 'N':
+                    case '2':
+                        Preset.Show();
+                        Console.WriteLine("which preset do you want to set?\nenter preset name:");
+
+                        choiceS = Console.ReadLine();
+                        if (string.IsNullOrEmpty(choiceS)) continue;
+
+                        Eating? eatingPreset = Preset.GetPreset(choiceS);
+                        if (eatingPreset == null) continue;
+
+                        _product = eatingPreset;
+                        break;
+
+                    case '3':
+                        _product.Show();
+                        Console.WriteLine("which dish do you want to remove?\nenter dish Id:");
+
+                        choiceS = Console.ReadLine();
+                        if (string.IsNullOrEmpty(choiceS)) continue;
+
+                        if (Int32.TryParse(choiceS.ToString(), out int choiceint))
+                        {
+                            Dish? dishBuff = DishDatabase.GetDish(choiceint);
+                            if (dishBuff == null) continue;
+                            if (_product.Dishes.Contains(dishBuff))
+                            {
+                                _product.Dishes.Remove(dishBuff);
+                            }
+                        }
+                        break;
+
+                    case '4':
                         flag = false;
                         break;
 

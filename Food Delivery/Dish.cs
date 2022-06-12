@@ -55,7 +55,7 @@ namespace Food_Delivery
             Console.Write(Id+"\t");
 
             int drink_name_max_length = 20;
-            if(Name.Length > 10)
+            if(Name.Length > drink_name_max_length)
             {
                 for(int i = 0; i < drink_name_max_length; i++)
                 {
@@ -71,7 +71,15 @@ namespace Food_Delivery
                     Console.Write(" ");
                 }
             }
-            Console.Write($"{Price}rub\t{Calories}cal\t{(IsDrink?"is a":"not a")} drink\n");
+            //cursor position 26
+            Console.SetCursorPosition(30, top);
+            Console.Write($"{Price}rub");
+
+            Console.SetCursorPosition(40, top);
+            Console.Write($"{Calories}cal");
+
+            Console.SetCursorPosition(50, top);
+            Console.Write($"{(IsDrink?"is a":"not a")} drink\n");
         }
     }
 }

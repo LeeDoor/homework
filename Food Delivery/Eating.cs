@@ -34,7 +34,7 @@ namespace Food_Delivery
         /// adds dish in list with its link
         /// </summary>
         /// <param name="dish">link on your dish</param>
-        public void AddDish(Dish dish)
+        public Eating AddDish(Dish dish)
         {
             if (Dishes.Count < MAX_DISHES)
             {  // если блюд меньше максимального
@@ -55,6 +55,16 @@ namespace Food_Delivery
                 Console.WriteLine("too much dishes for one eating. max is 4 dishes and 1 drink or 5 dishes");
                 Console.ForegroundColor = ConsoleColor.White;
             }
+            return this;
+        }
+
+        public Eating AddDish(Dish[] dishes)
+        {
+            foreach(var dish in dishes)
+            {
+                AddDish(dish);
+            }
+            return this;
         }
 
         /// <summary>

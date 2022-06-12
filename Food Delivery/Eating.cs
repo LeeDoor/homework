@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Delivery.Interfaces;
+using Food_Delivery.Interfaces;
 
-namespace Delivery
+namespace Food_Delivery
 {
     /// <summary>
     /// a class describing a single meal, such as breakfast, lunch, dinner

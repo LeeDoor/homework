@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delivery
+namespace Food_Delivery
 {
     /// <summary>
     /// the static class contains all kinds of dishes in the database, as well as methods for obtaining these dishes via id and name

@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace Food_Delivery
 {
-    /// <summary>
-    /// calorie hazard level
-    /// </summary>
-    public enum DangerLevel
+    public class Preset
     {
-        Little,
-        Safe,
-        Alot
+        public Eating eating;
     }
 }

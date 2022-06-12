@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Food_Delivery.Interfaces;
 
-namespace Delivery
+namespace Food_Delivery
 {
     /// <summary>
     /// class builds eating

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delivery.Interfaces
+namespace Food_Delivery.Interfaces
 {
     /// <summary>
     /// interface describing classes in which the final cost can be calculated

@@ -34,6 +34,7 @@ namespace Food_Delivery
         /// adds dish in list with its link
         /// </summary>
         /// <param name="dish">link on your dish</param>
+        /// <returns>returns itself</returns>
         public Eating AddDish(Dish dish)
         {
             if (Dishes.Count < MAX_DISHES)
@@ -58,6 +59,11 @@ namespace Food_Delivery
             return this;
         }
 
+        /// <summary>
+        /// adds dishes with many dishes given
+        /// </summary>
+        /// <param name="dishes">list of dishes you want to add</param>
+        /// <returns>returns itself</returns>
         public Eating AddDish(Dish[] dishes)
         {
             foreach(var dish in dishes)

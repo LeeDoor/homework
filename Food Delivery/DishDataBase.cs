@@ -15,18 +15,21 @@ namespace Food_Delivery
         /// list of dishes
         /// </summary>
         public static List<Dish> Dishes { get; private set; } = new()
-        {
-            new Dish(0, "Банан", 15, 25, false),
-            new Dish(1, "Огурец", 12, 31,  false),
-            new Dish(2, "брынза", 266, 262,  false),
-            new Dish(3, "йогурт", 60, 57,  false),
-            new Dish(4, "кефир", 70, 40,  true),
-            new Dish(5, "молоко", 100, 45,  true),
-            new Dish(6, "сметана", 64, 119,  false),
-            new Dish(7, "каша овсянная", 30, 333,  false),
-            new Dish(8, "каша рисовая", 32, 333,  false),
-            new Dish(9, "фасолевый суп", 200, 54,  false),
-            new Dish(10, "Апельсиновый сок 0,5л", 70, 200, true)
+        {//          id      name                      price   cal     is drink
+            new Dish(0,     "банан",                   15,     25,     false),
+            new Dish(1,     "огурец",                  12,     31,     false),
+            new Dish(2,     "брынза",                  266,    262,    false),
+            new Dish(3,     "йогурт",                  60,     57,     false),
+            new Dish(4,     "кефир",                   70,     40,     true),
+            new Dish(5,     "молоко",                  100,    45,     true),
+            new Dish(6,     "сметана",                 64,     119,    false),
+            new Dish(7,     "каша овсянная",           30,     333,    false),
+            new Dish(8,     "каша рисовая",            32,     333,    false),
+            new Dish(9,     "фасолевый суп",           200,    54,     false),
+            new Dish(10,    "Апельсиновый сок 0,5л",   70,     200,    true),
+            new Dish(11,    "баранина",                120,    400,    false),
+            new Dish(12,    "говядина",                150,    300,    false),
+            new Dish(13,    "кролик",                  90,     400,    false),
         };
 
         /// <summary>

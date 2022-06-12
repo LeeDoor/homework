@@ -36,23 +36,25 @@ namespace Food_Delivery
                 Console.WriteLine($"\nDuration => {_product.Duration}");
                 Console.ForegroundColor = ConsoleColor.White;
 
-                switch (_product.IsAmountNormal(_product.CountCalories()))
+                int calories = _product.CountCalories();
+
+                switch (_product.IsAmountNormal(calories/_product.Duration))
                 {
                     case DangerLevel.Little:
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"{_product.CountCalories()} cal\nwarning: not enough for a day!");
+                        Console.WriteLine($"{calories} cal\nwarning: not enough for a day!");
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
 
                     case DangerLevel.Safe:
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"{_product.CountCalories()} cal");
+                        Console.WriteLine($"{calories} cal");
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
 
                     case DangerLevel.Alot:
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"{_product.CountCalories()} cal\nwarning: too much calories!");
+                        Console.WriteLine($"{calories} cal\nwarning: too much calories!");
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
                 }

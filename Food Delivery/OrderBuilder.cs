@@ -162,15 +162,19 @@ namespace Food_Delivery
             }
             if (!_product.Eatings.ContainsKey(eatingTime))
             {
+                EatingDirector director = new EatingDirector();
                 EatingBuilder builder = new EatingBuilder();
-                builder.BuildDishes();
+                director.Builder = builder;
+                director.BuildEating();
                 _product.AddEating(eatingTime, builder._product);
             }
             else
             {
+                EatingDirector director = new EatingDirector();
                 EatingBuilder builder = new EatingBuilder();
+                director.Builder = builder;
                 builder._product = _product.Eatings[eatingTime];
-                builder.BuildDishes();
+                director.BuildEating();
             }
         }
     }
